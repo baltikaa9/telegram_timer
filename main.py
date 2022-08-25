@@ -8,6 +8,8 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands='timer')
 async def timer(message):
+    """for group and supergroup chat"""
+
     if message.chat.type == 'group' or message.chat.type == 'supergroup':
         try:
             time = int(message.text.split()[1])
@@ -28,6 +30,8 @@ async def timer(message):
 
 @dp.message_handler()
 async def timer(message):
+    """for private chat"""
+
     if message.chat.type == 'private':
         try:
             time = int(message.text)
